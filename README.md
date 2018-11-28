@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TextInput, Button} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Alert, Button, Image} from 'react-native';
+
+
 
 export default class App extends Component{
 
@@ -10,19 +12,20 @@ export default class App extends Component{
       arr: [],
       countCons: 0,
       countVow: 0,
-      countChar: 0,
-      reset:'Reset'
+      countChar: 0
+     
     };
   }
 
-updateReset(){
+
+
+AnalyzeWord= () => { 
+
   this.setState({reset:this.state.word=''})
   this.setState({countCons:this.state.countCons=0})
   this.setState({countVow:this.state.countVow=0})
   this.setState({countChar:this.state.countChar=0})
-}
-
-AnalyzeWord= () => { 
+  
   this.setState({array:this.state.word.split("")},()=> {
       this.setState({countChar:this.state.array.length})
 
@@ -43,23 +46,28 @@ AnalyzeWord= () => {
     }
   )};
   
-  
+
 
 render() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>WORD ANALYZER</Text>
-      <TextInput style ={{backgroundColor: 'white', textAlign: "center", padding: 10}}  onChangeText={(word)=>this.setState({word})} placeholder="Key in word"/>
-      <Button onPress={() =>this.AnalyzeWord()} title="Analyze"></Button>
-      <Text style={styles.contents}>Word: {this.state.word}</Text>
-     
-      <Text style={styles.contents}>No.of Consonants: {this.state.countCons}</Text>
+    
+      <TextInput onChangeText={(word)=>this.setState({word})} placeholder="Key In Word"/>
       
-      <Text style={styles.contents}>No. of Vowels: {this.state.countVow}</Text>
+      <Button onPress={() =>this.AnalyzeWord()} title="Analyze"></Button>
+      <Text style={styles.contents}>Word:</Text> <Text style={styles.answers}>{this.state.word}</Text>
 
-      <Text style={styles.contents}>No. of Characters: {this.state.countChar}</Text>
+      <Text style={styles.contents}>No.of Consonants:</Text>
+      <Text style={styles.answers}>{this.state.countCons}</Text>
 
-      <Button onPress={() =>this.updateReset()} title="Reset"></Button>
+      <Text style={styles.contents}>No. of Vowels:</Text>
+      <Text style={styles.answers}>{this.state.countVow}</Text>
+
+      <Text style={styles.contents}>No. of Characters:</Text>
+      <Text style={styles.answers}>{this.state.countChar}</Text>
+
+      
   </View>
   );
 }
@@ -75,7 +83,7 @@ const styles = StyleSheet.create({
   },
 
   title:{
-    fontSize: 20,
+    fontSize: 24,
     textAlign: 'center',
     margin: 10,
 
@@ -85,7 +93,7 @@ const styles = StyleSheet.create({
     textAlign:'center',
     color: '#333333',
     marginBottom:5,
-    fontSize:14
+    fontSize:18
 
 },
 
@@ -94,6 +102,6 @@ answers:{
     color: '#FF8C00',
     marginBottom:5,
     
-    fontSize:12
+    fontSize:17
 }
-})
+}) 
