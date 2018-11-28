@@ -21,10 +21,10 @@ export default class App extends Component{
 
 AnalyzeWord= () => { 
 
-  this.setState({reset:this.state.word=''})
-  this.setState({countCons:this.state.countCons=0})
-  this.setState({countVow:this.state.countVow=0})
-  this.setState({countChar:this.state.countChar=0})
+
+  this.setState({countCons:0})
+  this.setState({countVow:0})
+  this.setState({countChar:0})
   
   this.setState({array:this.state.word.split("")},()=> {
       this.setState({countChar:this.state.array.length})
