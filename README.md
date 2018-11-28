@@ -12,19 +12,21 @@ export default class App extends Component{
       arr: [],
       countCons: 0,
       countVow: 0,
-      countChar: 0
+      countChar: 0,
+      reset:'Reset'
      
     };
   }
 
 
+updateReset(){
+  this.setState({reset:this.state.word=''})
+  this.setState({countCons=0})
+  this.setState({countVow=0})
+  this.setState({countChar=0})
+}
 
 AnalyzeWord= () => { 
-
-
-  this.setState({countCons:0})
-  this.setState({countVow:0})
-  this.setState({countChar:0})
   
   this.setState({array:this.state.word.split("")},()=> {
       this.setState({countChar:this.state.array.length})
@@ -67,7 +69,7 @@ render() {
       <Text style={styles.contents}>No. of Characters:</Text>
       <Text style={styles.answers}>{this.state.countChar}</Text>
 
-      
+      <Button onPress={() => this.updateReset()} title="Reset"></Button>
   </View>
   );
 }
