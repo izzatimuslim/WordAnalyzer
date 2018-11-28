@@ -14,20 +14,22 @@ export default class App extends Component{
       countVow: 0,
       countChar: 0,
       reset:'Reset'
-     
     };
   }
 
 
+
+//Asyiqin
 updateReset(){
   this.setState({reset:this.state.word=''})
-  this.setState({countCons=0})
-  this.setState({countVow=0})
-  this.setState({countChar=0})
+  this.setState({countCons:this.state.countCons=0})
+  this.setState({countVow:this.state.countVow=0})
+  this.setState({countChar:this.state.countChar=0})
 }
 
+
+//Izzati
 AnalyzeWord= () => { 
-  
   this.setState({array:this.state.word.split("")},()=> {
       this.setState({countChar:this.state.array.length})
 
@@ -50,6 +52,8 @@ AnalyzeWord= () => {
   
 
 
+
+//Izzati & Asyiqin
 render() {
   return (
     <View style={styles.container}>
@@ -69,7 +73,9 @@ render() {
       <Text style={styles.contents}>No. of Characters:</Text>
       <Text style={styles.answers}>{this.state.countChar}</Text>
 
-      <Button onPress={() => this.updateReset()} title="Reset"></Button>
+      <Button onPress={() =>this.updateReset()} title="Reset"></Button>
+
+      
   </View>
   );
 }
