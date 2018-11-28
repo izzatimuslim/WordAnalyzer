@@ -56,7 +56,7 @@ render() {
       <TextInput onChangeText={(word)=>this.setState({word})} placeholder="Key In Word"/>
       
       <Button onPress={() =>this.AnalyzeWord()} title="Analyze"></Button>
-      <Text style={styles.contents}>Word:</Text> <Text style={styles.answers}>{this.state.word}</Text>
+      <Text style={styles.contents}>Word:</Text><Text style={styles.answers}>{this.state.word}</Text>
 
       <Text style={styles.contents}>No.of Consonants:</Text>
       <Text style={styles.answers}>{this.state.countCons}</Text>
